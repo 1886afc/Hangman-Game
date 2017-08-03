@@ -1,11 +1,11 @@
-//psuedobob
+//javascript code
 var game = {
     wins: 0,
     losses: 0,
     guessesLeft: 0,
     userGuesses: [],
     wrongGuesses: [],
-    Words: ['dogs', "cat", "rabbit", "frog"],
+    Words: ['dogs', "cat", "rabbit", "frog", "zebra", "cow"],
     randWord: "",
     blanks: "",
     startGame: function () {
@@ -54,14 +54,16 @@ var game = {
 
         this.nextRound();
     },
+	//starts new round if out og guesses
     nextRound: function () {
         if (this.guessesLeft === 0) {
             alert('game over');
             this.losses++;
             document.getElementById('lossCounter').innerHTML = this.losses;
+            //runs the startGame function
             this.startGame();
         }
-
+//alerts if you win and starts new game
         if (this.blanks.indexOf("_") < 0) {
             alert('you won');
             this.wins++;
